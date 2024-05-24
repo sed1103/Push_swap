@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   add_stack.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skirakos <skirakos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/20 20:25:21 by skirakos          #+#    #+#             */
+/*   Updated: 2024/05/20 20:25:22 by skirakos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Includes/push_swap.h"
 
 t_stack	*ft_lstnew(long long content)
@@ -12,14 +24,13 @@ t_stack	*ft_lstnew(long long content)
 	return (stack);
 }
 
-void add_stack(t_stack **tmp, char **res, t_stack **stack)
+void	add_stack(t_stack **tmp, char **res, t_stack **stack)
 {
 	int	i;
 
 	i = 0;
 	while (res[i])
 	{
-		//printf("%d \n", ft_atoi(str[i]));
 		(*tmp)->next = ft_lstnew(ft_atoi(res[i]));
 		if (!(*tmp))
 		{
@@ -32,12 +43,12 @@ void add_stack(t_stack **tmp, char **res, t_stack **stack)
 	}
 }
 
-void stack_init(t_stack **stack, char **str)
+void	stack_init(t_stack **stack, char **str)
 {
 	int		i;
 	char	**res;
 	t_stack	*begin;
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	begin = *stack;
 	i = 1;

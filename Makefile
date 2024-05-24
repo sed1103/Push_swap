@@ -2,34 +2,40 @@ NAME = push_swap
 BONUS_NAME = checker
 
 SRCS =  src/main.c \
-	src/ft_ss.c \
-	src/ft_pab.c \
-    src/ft_rr.c \
-	src/ft_rrr.c \
-	src/ft_putstr_fd.c \
-	src/ft_putchar_fd.c \
-	src/ft_pars.c \
-	src/ft_util_list.c \
-	src/ft_validnums.c \
-	src/ft_sort.c \
-	src/ft_sort_second_part.c \
-	src/ft_atoi.c \
+	src/swap.c \
+	src/rotate.c \
+    src/reverse_rotate.c \
+	src/push.c \
+	src/mini_sort.c \
+	src/ft_validation.c \
+	src/ft_strjoin.c \
 	src/ft_split.c \
+	src/ft_lstclear.c \
+	src/ft_issorted.c \
+	src/ft_checknums.c \
+	src/ft_atoi.c \
+	src/butterfly.c \
+	src/add_stack.c \
+	src/ft_strlen.c
 
 BONUS_SRCS = src/checker.c \
 	     src/get_next_line.c \
 	     src/get_next_line_utils.c \
-	     src/ft_ss.c \
-	     src/ft_pab.c \
-         src/ft_rr.c \
-	     src/ft_rrr.c \
-	     src/ft_putstr_fd.c \
-	     src/ft_putchar_fd.c \
-	     src/ft_util_list.c \
-	     src/ft_validnums.c \
-	     src/ft_pars.c \
-	     src/ft_atoi.c \
-	     src/ft_split.c \
+		src/swap.c \
+		src/rotate.c \
+		src/reverse_rotate.c \
+		src/push.c \
+		src/mini_sort.c \
+		src/ft_validation.c \
+		src/ft_strjoin.c \
+		src/ft_split.c \
+		src/ft_lstclear.c \
+		src/ft_issorted.c \
+		src/ft_checknums.c \
+		src/ft_atoi.c \
+		src/butterfly.c \
+		src/add_stack.c \
+		src/ft_strlen.c \
  
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)	
@@ -50,6 +56,7 @@ $(BONUS_NAME): $(BONUS_OBJS)
 
 %.o: %.c Includes/push_swap.h Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
+
 clean:
 	$(RM) $(OBJS) $(BONUS_OBJS)
 

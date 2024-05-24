@@ -1,18 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skirakos <skirakos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/20 20:31:26 by skirakos          #+#    #+#             */
+/*   Updated: 2024/05/20 20:32:36 by skirakos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Includes/push_swap.h"
-
-// char	*ft_new(size_t size)
-// {
-// 	char	*str;
-
-// 	str = (char *)malloc((size + 1) * sizeof(char));
-// 	if (str != NULL)
-// 	{
-// 		ft_memset(str, '\0', (size + 1));
-// 		return (str);
-// 	}
-// 	else
-// 		return (NULL);
-// }
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -22,8 +20,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	i = 0;
 	if (s1 && s2)
 	{
-		//str = ft_new(ft_strlen(s1) + ft_strlen(s2));
-		str = (char *)malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+		str = (char *)malloc((ft_strlen(s1)
+					+ ft_strlen(s2) + 1) * sizeof(char));
 		if (!str)
 			return (NULL);
 		while (s1[i] != '\0')

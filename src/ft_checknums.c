@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_checknums.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skirakos <skirakos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/20 20:30:18 by skirakos          #+#    #+#             */
+/*   Updated: 2024/05/20 20:30:19 by skirakos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Includes/push_swap.h"
 
-void ft_check_maxmin(t_stack **stack)
+void	ft_check_maxmin(t_stack **stack)
 {
-	t_stack *tmp1;
+	t_stack	*tmp1;
 
 	tmp1 = *stack;
 	while (tmp1)
@@ -15,17 +27,17 @@ void ft_check_maxmin(t_stack **stack)
 		tmp1 = tmp1->next;
 	}
 }
-void ft_check_duplicate(t_stack **stack)
+
+void	ft_check_duplicate(t_stack **stack)
 {
-	t_stack *tmp1;
-	t_stack *tmp2;
+	t_stack	*tmp1;
+	t_stack	*tmp2;
 
 	tmp1 = *stack;
-
 	while (tmp1)
 	{
 		if (!tmp1->next)
-			break;
+			break ;
 		tmp2 = tmp1->next;
 		while (tmp2)
 		{

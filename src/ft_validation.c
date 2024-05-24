@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_validation.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: skirakos <skirakos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/20 20:33:36 by skirakos          #+#    #+#             */
+/*   Updated: 2024/05/20 20:35:22 by skirakos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../Includes/push_swap.h"
 
 int	ft_isspace(char c)
@@ -7,7 +19,8 @@ int	ft_isspace(char c)
 		return (1);
 	return (0);
 }
-void ft_countdigit(char *str)
+
+void	ft_countdigit(char *str)
 {
 	int	i;
 	int	count;
@@ -32,14 +45,13 @@ void ft_countdigit(char *str)
 		exit(!write(2, "Error\n", 6));
 }
 
-void check_null(char **str)
+void	check_null(char **str)
 {
 	int	i;
 	int	j;
 
-	j = 0;	
+	j = 0;
 	i = 1;
-	//printf("dssdas\n");
 	while (str[i])
 	{
 		j = 0;
@@ -54,50 +66,51 @@ void check_null(char **str)
 		i++;
 	}
 }
+
 void	ft_check_sign(char **str)
-{
-	int	i;
-	int	j;
-
-	j = 0;	
-	i = 1;
-	while (str[i])
-	{
-		j = 0;
-		while (str[i][j])
-		{
-			if ((str[i][j] == '-' || str[i][j] == '+') && (str[i][j + 1] < '0' || str[i][j + 1] > '9'))
-				exit(!write(2, "Error\n", 6));
-			if ((str[i][j] >= '0' && str[i][j] <= '9') && (str[i][j + 1] == '-' || str[i][j + 1] == '+'))
-				exit(!write(2, "Error\n", 6));
-				
-			j++;
-		}
-		ft_countdigit(str[i++]);
-	}
-}
-
-void	ft_validation(int argc, char **argv)
 {
 	int	i;
 	int	j;
 
 	j = 0;
 	i = 1;
-	//char **res = ft_split(argv[1]);
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if ((str[i][j] == '-' || str[i][j] == '+')
+				&& (str[i][j + 1] < '0' || str[i][j + 1] > '9'))
+				exit(!write(2, "Error\n", 6));
+			if ((str[i][j] >= '0' && str[i][j] <= '9')
+				&& (str[i][j + 1] == '-' || str[i][j + 1] == '+'))
+				exit(!write(2, "Error\n", 6));
+			j++;
+		}
+		ft_countdigit(str[i++]);
+	}
+}
+
+void	ft_validation(char **argv)
+{
+	int	i;
+	int	j;
+
+	j = 0;
+	i = 1;
 	check_null(argv);
 	while (argv[i])
 	{
 		j = 0;
 		while (argv[i][j])
 		{
-			if ((argv[i][j] < '0' || argv[i][j] > '9') && (argv[i][j] != '-') && (argv[i][j] != '+') && !ft_isspace(argv[i][j]))
+			if ((argv[i][j] < '0' || argv[i][j] > '9')
+				&& (argv[i][j] != '-') && (argv[i][j] != '+')
+				&& !ft_isspace(argv[i][j]))
 				exit(!write(2, "Error\n", 6));
-			j++;	
+			j++;
 		}
 		i++;
 	}
 	ft_check_sign(argv);
-	
-	//printf("OK");
 }
